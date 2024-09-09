@@ -10,6 +10,13 @@ public class SnakeView extends JPanel {
         this.snakeModel = snakeModel;
         this.playAgain = new JButton("Play Again");
         this.playAgain.setVisible(false);
+        // Customize the button
+        // Set button's background and text color
+        playAgain.setBackground(Color.darkGray);
+        playAgain.setForeground(Color.red);
+        // Set button's font
+        playAgain.setFont(new Font("Ink Free", Font.BOLD, 30));
+
         this.add(playAgain);
         this.setPreferredSize(new Dimension(snakeModel.SCREEN_WIDTH,snakeModel.SCREEN_HEIGHT));
         this.setBackground(Color.black);
@@ -73,7 +80,7 @@ public class SnakeView extends JPanel {
         FontMetrics metrics2 = getFontMetrics(g.getFont());
         g.drawString("Game Over",(snakeModel.SCREEN_WIDTH-metrics2.stringWidth("Game Over"))/2,snakeModel.SCREEN_HEIGHT/2);
         this.playAgain.setVisible(true);
-        this.playAgain.setBounds((snakeModel.SCREEN_WIDTH-150)/2, snakeModel.SCREEN_HEIGHT / 2 + 50, 150, 50);
+        this.playAgain.setBounds((snakeModel.SCREEN_WIDTH-250)/2, snakeModel.SCREEN_HEIGHT / 2 + 50, 250, 50);
     }
 
     // Expose the button to the controller to add a listener

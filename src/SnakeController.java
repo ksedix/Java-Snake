@@ -43,24 +43,16 @@ public class SnakeController extends JFrame implements ActionListener{
             char direction = snakeModel.getDirection();
             switch(e.getKeyCode()){
                 case KeyEvent.VK_LEFT:
-                    if(direction != 'R'){
-                        snakeModel.setDirection('L');
-                    }
+                    snakeModel.setDirection('L');
                     break;
                 case KeyEvent.VK_RIGHT:
-                    if (direction != 'L'){
-                        snakeModel.setDirection('R');
-                    }
+                    snakeModel.setDirection('R');
                     break;
                 case KeyEvent.VK_UP:
-                    if (direction != 'D'){
-                        snakeModel.setDirection('U');
-                    }
+                    snakeModel.setDirection('U');
                     break;
                 case KeyEvent.VK_DOWN:
-                    if (direction != 'U'){
-                        snakeModel.setDirection('D');
-                    }
+                    snakeModel.setDirection('D');
                     break;
             }
 

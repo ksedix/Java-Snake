@@ -52,6 +52,19 @@ public class SnakeModel {
     }
 
     public void move(){
+        if (direction == 'L' && x[0] - UNIT_SIZE == x[1]){
+            direction = 'R';
+        }
+        if (direction == 'R' && x[0] + UNIT_SIZE == x[1]){
+            direction = 'L';
+        }
+        if (direction == 'U' && y[0] - UNIT_SIZE == y[1]){
+            direction = 'D';
+        }
+        if (direction == 'D' && y[0] + UNIT_SIZE == y[1]) {
+            direction = 'U';  // Cancel the move if it's an invalid reverse
+        }
+
         for(int i = bodyParts; i>0; i--){
             x[i] = x[i-1];
             y[i] = y[i-1];
@@ -94,7 +107,7 @@ public class SnakeModel {
 
         // Check if head collides with walls (only if still running)
         if (running) {
-            if (x[0] < 0 || x[0] > SCREEN_WIDTH || y[0] < 0 || y[0] > SCREEN_HEIGHT) {
+            if (x[0] < 0 || x[0] >= SCREEN_WIDTH || y[0] < 0 || y[0] >= SCREEN_HEIGHT) {
                 running = false;
             }
         }
